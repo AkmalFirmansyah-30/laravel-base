@@ -23,3 +23,31 @@ Route::get('new-route', function() {
 Route::get('/belajar-route/{page}', function($page){
     return "Hello, Ini Halaman Belajar Route $page";
 });
+
+Route::get('/home', function(){
+    return view('home');
+});
+
+Route::get('/profile', function() {
+ 
+    $nama = "Granger";
+    $prodi = "Gold Lane";
+    $kelas = "XII RPL 1";
+
+    return view('profile', [
+        'nama' => $nama,
+        'prodi' => $prodi,
+        'kelas' => $kelas
+    ]);
+});   
+
+Route::get('/percabangan', function () {
+    $umur = 20;
+    $nilai = 80;
+    return view("percabangan", ['umur' => $umur, 'nilai' => $nilai]);
+});
+
+Route::get('/perulangan', function () {
+    $produk = ["Laptop", "Mouse", "Keyboard", "Komputer", "Handphone", "Hardisk"];
+    return view('perulangan', ['produk' => $produk]);
+});
