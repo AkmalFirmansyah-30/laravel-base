@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MahasiswaController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -51,3 +52,9 @@ Route::get('/perulangan', function () {
     $produk = ["Laptop", "Mouse", "Keyboard", "Komputer", "Handphone", "Hardisk"];
     return view('perulangan', ['produk' => $produk]);
 });
+
+Route::get('/mahasiswa', [MahasiswaController::class, 'index']);
+Route::get('/umur', [MahasiswaController::class, 'tampilUmur']);
+
+Route::get('/mahasiswa/tambah', [MahasiswaController::class, 'tampilForm']);
+Route::post('/mahasiswa/proses', [MahasiswaController::class, 'prosesForm']);
